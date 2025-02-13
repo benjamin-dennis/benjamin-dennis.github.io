@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Happy Valentine's day!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Cutive+Mono);
+
+        body {
+            font: 16px/20px 'Cutive Mono', serif;
+        }
+
+        a {
+            color: #222;
+        }
+
+        .wrap {
+            width: 400px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .secret_message {
+            margin-top: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="button">Home</a>
+    <div class="container">
+        <div class="wrap">
+            <div class="secret_message" data-text="
+                I could never hope to put into words everything that makes my mind race for you, but who doesn't like trying to write down the thoughts that race through their mind. So here goes:
+                <strong>The endless list of everything that you are</strong><br>
+                <ul><li>You are awesome!</li>
+                    <li>You are cute :P</li>
+                    <li>You are beautiful :P</li>
+                    <li>You are smart :D</li>
+                    <li>You are intelligent :D</li>
+                    <li>You are sexy &#59;)</li>
+                    <li>You are caring :D</li>
+                    
+                <div align='right'><br><br><strong>- With love, Your Ben xx</strong></div>"></div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var running = false;
+        function typeWriter(text, n) {
+            if (n < (text.length)) {
+                $('.secret_message').html(text.substring(0, n + 1) + "❤");
+                n++;
+                setTimeout(function () {
+                    typeWriter(text, n)
+                }, 1);      // CHANGE SPEED HERE
+            }
+            else {
+                running = false;
+            }
+        }
+
+        if (running == false) {
+            var text = $('.secret_message').data('text');
+            running = true;
+            typeWriter(text, 0);
+        }
+    </script>
+</body>
+</html>
