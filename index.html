@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Happy Valentine's day!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Cutive+Mono);
+
+        body {
+            font: 16px/20px 'Cutive Mono', serif;
+        }
+
+        a {
+            color: #222;
+        }
+
+        .wrap {
+            width: 480px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .secret_message {
+            margin-top: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrap">
+            <a href="#" class="start">click here to start</a>
+            <div class="secret_message" data-text="Dear Charlie,<br>
+                My sunshine<br>My darling<br>My partner<br>My love<br>
+                <center><strong>Happy Valentine's Day!</strong></center><br>
+                I can barely put into words how I feel about you<br>
+                How incredible, intelligent, witty, creative, loving, warm (at least when I'm against you), and endlessly amazing you are<br>
+                You have held me together as it hit me how long I will be without you, but together, 
+                it our relationship has evolved into a place where I never feel like I'm without you.<br><br>
+                Despite being worlds apart, my heart is, and forever will be, <strong>yours.</strong><br><br>
+                Our memories - from small occasions where you push into my arms, to art galleries overseas - dance through my mind every day, but as today approached, 
+                I have found myself thinking more and more about the time we spent together. Every single moment with you is incredible
+               
+                <strong>13 reasons why I like you?</strong><br>
+                <ul><li>You are awesome!</li>
+                    <li>You are cute :P</li>
+                    <li>You are beautiful :P</li>
+                    <li>You are smart :D</li>
+                    <li>You are intelligent :D</li>
+                    <li>You code &#x1F5B3</li>
+                    <li>You are sexy &#59;)</li>
+                    <li>You are a foodie &#x1F355&#x1F354&#x1F344</li>
+                    <li>You are caring :D</li>
+                    <li>Aap bandar ho &#x1F412</li>
+                    <li>You can figure out why I have written 13 but mentioned 11 points!</li></ul><br>
+                I hope you will like this :)
+                <div align='right'><strong>- x4150</strong></div>"></div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var running = false;
+        function typeWriter(text, n) {
+            if (n < (text.length)) {
+                $('.secret_message').html(text.substring(0, n + 1) + "❤");
+                n++;
+                setTimeout(function () {
+                    typeWriter(text, n)
+                }, 1);      // CHANGE SPEED HERE
+            }
+            else {
+                running = false;
+            }
+        }
+
+        $('.start').click(function (e) {
+            e.stopPropagation();
+            if (running == false) {
+                var text = $('.secret_message').data('text');
+                running = true;
+                typeWriter(text, 0);
+            }
+        });
+    </script>
+</body>
+</html>
