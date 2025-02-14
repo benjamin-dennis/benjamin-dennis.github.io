@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="css/default.css" type="text/css" rel="stylesheet">
     <title>Happy Valentine's day!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        @import url(https://fonts.googleapis.com/css?family=Cutive+Mono);
 
-        body {
-            font: 16px/20px 'Cutive Mono', serif;
-        }
-
-        a {
-            color: #222;
-        }
-
-        .wrap {
-            width: 30%;
-            margin: 30px auto;
-            text-align: center;
-        }
-
-        .secret_message {
-            margin-top: 10px;
-            text-align: left;
-        }
-    </style>
 </head>
 <body>
     <a href="index.html" class="button">Home</a>
+    <a href="heart.html" id="nav1" class="button">Hearts</a>
+    <a href="things_about_you.html" id="nav2" class="button">Listing Life</a>
+    <a href="time_until_you.html" id="nav3" class="button">Time Until</a>
+    <a href="things_to_do.html"  id="nav4" class="button">TO DO</a>
+    <a href="video.html" id="nav5" class="button">Being Together</a>
+
+    <div class="hero">
+        <h3 id="time-title">Happy Valentines Day Charlie! ❤</h3>
+        <div class="timebox">
+            <div class="time">
+                <h2 id="days">00</h2>
+                <p>Days</p>
+            </div>
+            <div class="time">
+                <h2 id="hours">00</h2>
+                <p>Hours</p>
+            </div>
+            <div class="time">
+                <h2 id="minutes">00</h2>
+                <p>Minutes</p>
+            </div>
+            <div class="time">
+                <h2 id="seconds">00</h2>
+                <p>Seconds</p>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="wrap">
             <a href="#" class="start">click here to start</a>
@@ -42,7 +49,8 @@
                 Despite being worlds apart, my heart is, and forever will be, <strong>yours.</strong><br><br>
                 Our memories - from small occasions where you push into my arms, to art galleries overseas - dance through my mind every day, but as today approached, 
                 I have found myself thinking more and more about the time we spent together. Every single moment with you is incredible, and talking through them with you, thinking about my time with you makes the heart flutter.
-                
+                <br>
+                We both I know I could go on forever (and I probably will over the course of the next 5 months)
                 
                 
                 
@@ -74,5 +82,89 @@
             }
         });
     </script>
+    <script>
+        const Days = document.getElementById('days');
+        const Hours = document.getElementById('hours');
+        const Minutes = document.getElementById('minutes');
+        const Seconds = document.getElementById('seconds');
+
+        const Title = document.getElementById('time-title');
+        Title.style.display = "none";
+        
+        const nav1 = document.getElementById('nav1');
+        const nav2 = document.getElementById('nav2');
+        const nav3 = document.getElementById('nav3');
+        const nav4 = document.getElementById('nav4');
+        const nav5 = document.getElementById('nav5');
+
+        function timer () {
+            var d = new Date();
+            if (d.getHours() < 9) {
+                targetDate = new Date("February 14 2025 09:00:00").getTime();
+            } else if (d.getHours() < 11) {
+                targetDate = new Date("February 14 2025 11:00:00").getTime();
+            } else if (d.getHours() < 12) {
+                targetDate = new Date("February 14 2025 12:00:00").getTime();
+            } else if (d.getHours() < 15) {
+                targetDate = new Date("February 14 2025 15:00:00").getTime();
+            } else if (d.getHours() < 17) {
+                targetDate = new Date("February 14 2025 17:00:00").getTime();
+            } else {
+                targetDate = new Date("February 14 2025 17:00:00").getTime();
+                Title.style.display = "";
+            }
+
+            const currentDate = new Date().getTime();
+            const distance = targetDate - currentDate;
+
+            const days = Math.floor(distance / 1000 / 60 / 60 / 24);
+            const hours = Math.floor(distance / 1000 / 60 / 60) % 24;
+            const minutes = Math.floor(distance / 1000 / 60) % 60;
+            const seconds = Math.floor(distance / 1000) % 60;
+
+            Days.innerHTML = days;
+            Hours.innerHTML = hours;
+            Minutes.innerHTML = minutes;
+            Seconds.innerHTML = seconds;
+
+            if(distance < 0){
+                Days.innerHTML = "00";
+                Hours.innerHTML = "00";
+                Minutes.innerHTML = "00";
+                Seconds.innerHTML = "00";
+            }
+
+            var d = new Date();
+            if (d.getHours() >= 9) {
+                nav1.style.display = "";
+            } else {
+                nav1.style.display = "none";
+            }
+            if (d.getHours() >= 11) {
+                nav2.style.display = "";
+            } else {
+                nav2.style.display = "none";
+            }
+            if (d.getHours() >= 12) {
+                nav3.style.display = "";
+            } else {
+                nav3.style.display = "none";
+            }
+            if (d.getHours() >= 15) {
+                nav4.style.display = "";
+            } else {
+                nav4.style.display = "none";
+            }
+            if (d.getHours() >= 17) {
+                nav5.style.display = "";
+            } else {
+                nav5.style.display = "none";
+            }
+        }
+
+        setInterval(timer, 1000);
+
+    </script>
+
 </body>
 </html>
