@@ -1,0 +1,55 @@
+@import url(https://fonts.googleapis.com/css?family=Cutive+Mono);
+
+body {
+    font: 16px/20px 'Cutive Mono', serif;
+}
+
+a {
+    color: #222;
+}
+
+.wrap {
+    width: 350px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.secret_message {
+    margin-top: 10px;
+    text-align: left;
+}
+
+#loveHeart {
+    float: left;
+    width: 670px;
+    height: 620px;
+    position: relative;
+}
+
+#garden {
+    width: 100%;
+}
+
+
+.hero{
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timebox{
+    display: flex;
+    gap: 30px;
+}
+
+.time{
+    text-align: center;
+}
+
+.time h2{
+    font-size: 1rem;
+    font-weight: 100;
+}

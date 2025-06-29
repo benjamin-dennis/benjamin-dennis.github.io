@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <title>Happy Valentine's Day!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .postcard {
+            background-image: url(postcard.png);
+            background-size: cover;
+            height: 683px;
+            width: 1024px;
+            
+        }
+        
+        .box {
+            position: relative;
+            top:180px;
+            left: 85px;
+            height: 400px;
+            width: 450px;
+        }
+
+        .wrap {
+            width: 60rem;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        textarea {
+            height: 400px;
+            width: 450px;
+            background-color: rgba(238,170,170,0);
+            }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="button">Home</a>
+    <div class="container">
+        <div class="wrap">
+            <p>This is the direct postal line to me. To be used anytime, anywhere, for any purpose.<br>
+            Send me your deepest thoughts, your date ideas, things to do, your annoyances, something that happened in your day, and more!</p>
+            <div class="postcard">
+                <div class="box">
+                    <form method="POST" action="https://script.google.com/macros/s/AKfycbzMstszyLai5b-Kdp1Nxlf3d5SHfTi73EtW6yNYCBMAr4h3zT7hHlDUfTwbmpHwAfmy/exec">
+                        <textarea name="Message" type="text" placeholder="Type your message here..." required></textarea>
+                        <!-- <button type="submit">Send</button> -->
+                        
+                        </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+</body>
+</html>

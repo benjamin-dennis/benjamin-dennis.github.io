@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <title>Happy Valentine's Day!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        .hero{
+            height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .outside{
+            background-image: url(image1.jpeg);
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-timer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background-color: rgba(238,170,170,.5);
+            border-radius: 15px;
+            padding: 40px;
+            width: fit-content;
+        }
+
+        .timebox{
+            display: flex;
+            gap: 90px;
+        }
+
+        .time{
+            text-align: center;
+        }
+
+        .time h2{
+            font-size: 5rem;
+            font-weight: 100;
+        }
+
+        .home-box{
+            border-radius: 5px;
+            background: #fff;
+            padding: 1px;
+            width: 50px;
+            height: 2.5vh;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outside" id="top-area">
+        <div class="home-box">
+            <a href="index.html" class="button">Home</a>
+        </div>
+        <div class="hero">
+        <div class="hero-timer">
+            <h1>Time until you're in my arms again</h1>
+            <div class="timebox">
+                <div class="time">
+                    <h2 id="days">00</h2>
+                    <p>Days</p>
+                </div>
+                <div class="time">
+                    <h2 id="hours">00</h2>
+                    <p>Hours</p>
+                </div>
+                <div class="time">
+                    <h2 id="minutes">00</h2>
+                    <p>Minutes</p>
+                </div>
+                <div class="time">
+                    <h2 id="seconds">00</h2>
+                    <p>Seconds</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script>
+        const Days = document.getElementById('days');
+        const Hours = document.getElementById('hours');
+        const Minutes = document.getElementById('minutes');
+        const Seconds = document.getElementById('seconds');
+
+        const targetDate = new Date("June 28 2025 07:00:00").getTime();
+
+        function timer () {
+            const currentDate = new Date().getTime();
+            const distance = targetDate - currentDate;
+
+            const days = Math.floor(distance / 1000 / 60 / 60 / 24);
+            const hours = Math.floor(distance / 1000 / 60 / 60) % 24;
+            const minutes = Math.floor(distance / 1000 / 60) % 60;
+            const seconds = Math.floor(distance / 1000) % 60;
+
+            Days.innerHTML = days;
+            Hours.innerHTML = hours;
+            Minutes.innerHTML = minutes;
+            Seconds.innerHTML = seconds;
+
+            if(distance < 0){
+                Days.innerHTML = "00";
+                Hours.innerHTML = "00";
+                Minutes.innerHTML = "00";
+                Seconds.innerHTML = "00";
+            }
+        }
+
+        setInterval(timer, 1000);
+
+    </script>
+
+    <script>
+        var images = ['image1.jpeg', 'image2.jpeg', 'image3.jpeg','image4.jpeg', 'image5.jpeg', 'image6.jpeg', 'image7.jpeg', 'image8.jpeg', 'image9.jpeg', 'image10.jpeg', 'image11.jpeg'],
+        
+        index = 1,
+        $top = $('#top-area');
+
+        setInterval(function() {
+        $top.animate({ opacity: 0.1 }, 700, function() {
+            $top.css('background-image', 'url('+images[index++]+')');
+            $top.animate({ opacity: 1 }, 500, function() {
+            if(index >= (images.length)) {index = 0};
+            });
+            console.log(index)
+        });
+        }, 6000);
+    </script>
+</body>
+</html>
