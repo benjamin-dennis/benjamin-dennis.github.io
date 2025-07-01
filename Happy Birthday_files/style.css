@@ -1,0 +1,47 @@
+/* customizable snowflake styling */
+
+
+
+body {
+    background-color: #FFDAB9;
+}
+
+img {
+    width: 100%;
+}
+
+
+
+
+
+#confetti {
+    position: absolute;
+    left: 0;
+    top: 20;
+    height: 100%;
+    width: 100%;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateZ(0);
+    }
+
+    25% {
+        transform: rotateZ(10deg);
+    }
+
+    50% {
+        transform: rotateZ(0deg);
+    }
+
+    75% {
+        transform: rotateZ(-10deg);
+    }
+}
+
+
+.type-wrap {
+    font-size: 25px;
+    color: #C4515C;
+}

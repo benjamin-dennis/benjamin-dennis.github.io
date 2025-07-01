@@ -5,31 +5,85 @@
     <title>Happy Birthday!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
 
+        .hero{
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .outside{
+            background-image: url(image1.jpeg);
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-timer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            background-color: rgba(238,170,170,.5);
+            border-radius: 15px;
+            padding: 40px;
+            width: fit-content;
+        }
+
+        .timebox{
+            display: flex;
+            gap: 90px;
+        }
+
+        .time{
+            text-align: center;
+        }
+
+        .time h2{
+            font-size: 5rem;
+            font-weight: 100;
+        }
+
+        .home-box{
+            border-radius: 5px;
+            background: #fff;
+            padding: 1px;
+            width: 50px;
+            height: 2.5vh;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+    </style>
 </head>
+
 <body>
-    <a href="index.html" class="button">Home</a>
-    <a href="page-1.html" id="nav1" class="button">Page 1</a>
-    <a href="page-2.html" id="nav2" class="button">Page 2</a>
+    <a href="main-page.html" class="button">Home</a>
+    <a href="birthday.html" id="nav3" class="button">Birthday Girl</a>
+    <a href="time-til-home.html" id="nav1" class="button">Coming Home</a>
+    <a href="you-and-i.html" id="nav2" class="button">You and I</a>
+    <a href="gifts.html" id="nav4" class="button">For You</a>
 
     <div class="hero">
-        <h3 id="time-title">Counting down the time until I'm home...</h3>
-        <div class="timebox">
-            <div class="time">
-                <h2 id="days">00</h2>
-                <p>Days</p>
-            </div>
-            <div class="time">
-                <h2 id="hours">00</h2>
-                <p>Hours</p>
-            </div>
-            <div class="time">
-                <h2 id="minutes">00</h2>
-                <p>Minutes</p>
-            </div>
-            <div class="time">
-                <h2 id="seconds">00</h2>
-                <p>Seconds</p>
+        <div class="hero-timer">
+            <h1>Counting down the time until I'm home...</h1>
+            <div class="timebox">
+                <div class="time">
+                    <h2 id="days">00</h2>
+                    <p>Days</p>
+                </div>
+                <div class="time">
+                    <h2 id="hours">00</h2>
+                    <p>Hours</p>
+                </div>
+                <div class="time">
+                    <h2 id="minutes">00</h2>
+                    <p>Minutes</p>
+                </div>
+                <div class="time">
+                    <h2 id="seconds">00</h2>
+                    <p>Seconds</p>
+                </div>
             </div>
         </div>
     </div>
@@ -41,7 +95,6 @@
         const Seconds = document.getElementById('seconds');
 
         const Title = document.getElementById('time-title');
-        Title.style.display = "none";
         
         const nav1 = document.getElementById('nav1');
         const nav2 = document.getElementById('nav2');
@@ -79,6 +132,23 @@
 
         setInterval(timer, 1000);
 
+    </script>
+
+    <script>
+        var images = ['image1.jpeg', 'image2.jpeg', 'image3.jpeg','image4.jpeg', 'image5.jpeg', 'image6.jpeg', 'image7.jpeg', 'image8.jpeg', 'image9.jpeg', 'image10.jpeg', 'image11.jpeg'],
+        
+        index = 1,
+        $top = $('#top-area');
+
+        setInterval(function() {
+        $top.animate({ opacity: 0.1 }, 700, function() {
+            $top.css('background-image', 'url('+images[index++]+')');
+            $top.animate({ opacity: 1 }, 500, function() {
+            if(index >= (images.length)) {index = 0};
+            });
+            console.log(index)
+        });
+        }, 6000);
     </script>
 
 </body>
